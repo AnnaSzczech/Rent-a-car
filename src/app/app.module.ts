@@ -59,12 +59,12 @@ import { HttpClientModule } from '@angular/common/http';
       { path: "", component: LoginComponent },
       { path: "register", component: RegisterComponent },
       { path: "main", component: MainPageComponent },
-      { path: "create-cat", component: CreateCarComponent },
+      { path: "create-car", component: CreateCarComponent },
       { path: "manage", component: ManageReservationsComponent },
       { path: "users", component: AdminUsersComponent }
     ])
   ],
-  providers: [UserService],
+  providers: [UserService, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
