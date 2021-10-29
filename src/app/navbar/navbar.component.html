@@ -5,7 +5,7 @@
         </button>
         <span>Rent a Car</span>
         <span class="spacer"></span>
-        <div>
+        <div *ngIf='!isAutenticated()'>
             <a routerLink="/" mat-button>
                 <mat-icon>power_settings_new</mat-icon>
                 Login
@@ -13,6 +13,12 @@
             <a routerLink="/register" mat-button>
                 <mat-icon>fingerprint</mat-icon>
                 Register
+            </a>
+        </div>
+        <div *ngIf='isAutenticated()' (click)='logout()'>
+            <a href="/" mat-button>
+                <mat-icon>power_settings_new</mat-icon>
+                Logout
             </a>
         </div>
     </mat-toolbar-row>

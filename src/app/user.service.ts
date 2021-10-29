@@ -42,8 +42,10 @@ export class UserService {
     this.authenticated.next(false);
     clearTimeout(this.tokenTimer);
     this.changeAdmin(0);
-    localStorage.clear;
-    this.router.navigate(['/login']);
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiration');
+    localStorage.removeItem('admin');    
+    this.router.navigate(['/']);
   }
 
   getUserData() {

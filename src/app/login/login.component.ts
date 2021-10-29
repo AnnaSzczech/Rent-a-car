@@ -35,7 +35,7 @@ export class LoginComponent {
 
     autoAuthUser() {
         const authInfo = this.userService.getUserData();
-
+        console.log(authInfo)
         if (!authInfo) {
             return;
         }
