@@ -10,7 +10,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './register/register.component'; 
-import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -24,8 +23,10 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { UserService } from './user.service';
+import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './service/auth.guard';
 
 @NgModule({
   declarations: [
@@ -55,16 +56,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: "", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-      { path: "main", component: MainPageComponent },
-      { path: "create-car", component: CreateCarComponent },
-      { path: "manage", component: ManageReservationsComponent },
-      { path: "users", component: AdminUsersComponent }
-    ])
+    AppRoutingModule
   ],
-  providers: [UserService, LoginComponent],
+  providers: [UserService, AuthGuard, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
